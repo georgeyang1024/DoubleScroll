@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.georgeyang.doublescroll.DoubleScrollView
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layoutTop"
+                android:layout_width="match_parent"
+                android:background="#558987"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@mipmap/ic_launcher"
+                        android:id="@+id/imgAvatar"
+                        android:layout_width="@dimen/x122"
+                        android:layout_margin="@dimen/x30"
+                        android:layout_height="@dimen/x122" />
+
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/imgQrCode"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="@dimen/x80"
+                        android:layout_margin="@dimen/x30"
+                        android:layout_height="@dimen/x82" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_toRightOf="@+id/imgAvatar"
+                        android:layout_toLeftOf="@+id/imgQrCode"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="姓名:"
+                                android:textSize="@dimen/x28"
+                                android:textColor="@android:color/white"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tvClassId"
+                                android:layout_width="wrap_content"
+                                android:text="georgeyang"
+                                android:layout_marginLeft="@dimen/x10"
+                                android:textSize="@dimen/x28"
+                                android:textColor="@android:color/white"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_marginLeft="@dimen/x48"
+                                android:layout_width="wrap_content"
+                                android:text="年龄:"
+                                android:textSize="@dimen/x28"
+                                android:textColor="@android:color/white"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="23"
+                                android:id="@+id/tvClassNumber"
+                                android:layout_marginLeft="@dimen/x10"
+                                android:textSize="@dimen/x28"
+                                android:textColor="@android:color/white"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvClassName"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/x30"
+                            android:textSize="@dimen/x29"
+                            android:textColor="@android:color/white"
+                            android:text="广东广州天河区"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginRight="@dimen/x30"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:paddingTop="@dimen/x30"
+                    android:paddingBottom="@dimen/x30"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="猿"
+                            android:textSize="@dimen/x30"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="属性"
+                            android:layout_marginTop="@dimen/x20"
+                            android:textSize="@dimen/x22"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="999999"
+                            android:textSize="@dimen/x28"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/appTextView2" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="成就数"
+                            android:layout_marginTop="@dimen/x20"
+                            android:textSize="@dimen/x22"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="101%"
+                            android:textSize="@dimen/x28"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="活跃状态"
+                            android:layout_marginTop="@dimen/x20"
+                            android:textSize="@dimen/x22"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutContentBottom"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/layoutTabTitle"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x100"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/holo_green_dark"
+                        />
+
+
+                </LinearLayout>
+
+
+
+                <cn.georgeyang.doublescroll.DoubleScrollViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </cn.georgeyang.doublescroll.DoubleScrollView>
+
+</LinearLayout>
