@@ -2,14 +2,21 @@ package cn.georgeyang.doublescroll;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.BounceInterpolator;
 import android.widget.ListView;
+import android.widget.OverScroller;
 import android.widget.ScrollView;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by yangsp on 2016/11/14.
@@ -88,7 +95,7 @@ public class DoubleScrollView extends ScrollView {
                             return scrollableView.dispatchTouchEvent(event);
                         }
                     } else if (isDown) {
-                        if (!isScrollToTop(scrollableView)) {
+                        if (!ViewUtil.isScrollToTop(scrollableView)) {
                             event.transform(eventMatrix);
                             return scrollableView.dispatchTouchEvent(event);
                         }
@@ -102,22 +109,4 @@ public class DoubleScrollView extends ScrollView {
         return super.dispatchTouchEvent(event);
     }
 
-    public static boolean isScrollToTop(View view) {
-        if (view instanceof ListView) {
-            ListView listView = (ListView) view;
-            int first = listView.getFirstVisiblePosition();
-            if (first == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (view instanceof RecyclerView) {
-            RecyclerView recyclerView = (RecyclerView) view;
-            return recyclerView.canScrollVertically(1);
-        } else if (view instanceof ScrollView) {
-            ScrollView scrollView = (ScrollView) view;
-            return scrollView.getScrollY() == 0;
-        }
-        return true;
-    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class SAdapter extends FragmentStatePagerAdapter {
     private List<BaseListFragment> list;
-    private static final String[] titles = new String[]{"normal","list","recy","scroll"};
+    private static final String[] titles = new String[]{"normal","list","recy","scroll","sina"};
 
     public SAdapter(FragmentManager fm) {
         super(fm);
@@ -22,6 +22,7 @@ public class SAdapter extends FragmentStatePagerAdapter {
         list.add(new Fragment2());
         list.add(new Fragment3());
         list.add(new Fragment4());
+        list.add(new FragmentSina());
     }
 
     public View getSlidableView (int index) {

@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.setupWithViewPager(viewPager);
-
         scrollView.postDelayed(new Runnable() {
             @Override
             public void run() {
