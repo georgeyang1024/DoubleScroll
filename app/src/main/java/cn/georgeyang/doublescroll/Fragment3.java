@@ -23,8 +23,12 @@ public class Fragment3 extends BaseListFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.layout_recyclerview,null);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));//这里用线性宫格显示 类似于grid view
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(new NormalRecyclerViewAdapter(getContext()));
+
+        //fix  bug: recyclerView & scrollView
+        //see http://stackoverflow.com/questions/38074949/recyclerview-inside-scrollview-some-items-are-not-shown
+        recyclerView.setNestedScrollingEnabled(false);
         return view;
     }
 
