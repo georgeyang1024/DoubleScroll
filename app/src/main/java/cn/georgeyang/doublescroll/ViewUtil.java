@@ -15,14 +15,10 @@ public class ViewUtil {
         if (view instanceof ListView) {
             ListView listView = (ListView) view;
             int first = listView.getFirstVisiblePosition();
-            if (first == 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return first == 0;
         } else if (view instanceof RecyclerView) {
             RecyclerView recyclerView = (RecyclerView) view;
-            return recyclerView.canScrollVertically(1);
+            return !recyclerView.canScrollVertically(-1);
         } else if (view instanceof ScrollView) {
             ScrollView scrollView = (ScrollView) view;
             return scrollView.getScrollY() == 0;
@@ -40,7 +36,6 @@ public class ViewUtil {
             scrollView.smoothScrollTo(0,0);
         } else if (view instanceof ListView) {
             ListView listView = (ListView) view;
-//            listView.smoothScrollToPosition(0);
             listView.setSelection(0);
         }
     }

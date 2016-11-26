@@ -59,8 +59,17 @@ public class DoubleScrollView extends ScrollView {
 
     private int maxMoveY;
     private int tabHeight;
-    private float mFirstY;
+    private float mFirstY,mFirstX;
     private Matrix eventMatrix;
+    private boolean isIntercept;
+
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (isIntercept) {
+            return true;
+        }
+        return super.onInterceptTouchEvent(ev);
+    }
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
@@ -72,13 +81,25 @@ public class DoubleScrollView extends ScrollView {
             maxMoveY = mTitle.getMeasuredHeight();
         }
 
+        isIntercept = false;
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mFirstY = event.getY();
+                mFirstX = event.getX();
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (scrollableView != null) {
                     float mCurrentY = event.getY();
+                    float mCurrentX = event.getX();
+
+                    float detalX = mCurrentX - mFirstX;
+                    float detalY = mCurrentY - mFirstY;
+
+                    if (Math.abs(detalY) < Math.abs(detalX)) {
+                        break;
+                    }
+
 
                     if (tabHeight == 0) {
                         tabHeight = mContentView.getMeasuredHeight() - scrollableView.getMeasuredHeight();
@@ -86,16 +107,18 @@ public class DoubleScrollView extends ScrollView {
                     eventMatrix = new Matrix();
                     eventMatrix.setTranslate(0, -tabHeight);
 
-                    boolean isDown = mCurrentY > mFirstY;//往下拉
-                    boolean isUp = mCurrentY < mFirstY;//
+                    boolean isDown = mCurrentY > mFirstY;
+                    boolean isUp = mCurrentY < mFirstY;
 
                     if (isUp) {
                         if (getScrollY() >= maxMoveY) {
+                            isIntercept = true;
                             event.transform(eventMatrix);
                             return scrollableView.dispatchTouchEvent(event);
                         }
                     } else if (isDown) {
                         if (!ViewUtil.isScrollToTop(scrollableView)) {
+                            isIntercept = true;
                             event.transform(eventMatrix);
                             return scrollableView.dispatchTouchEvent(event);
                         }
